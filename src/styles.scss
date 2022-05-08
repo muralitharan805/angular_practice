@@ -1,1 +1,36 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+@use "/src/styles/themes/light_theme";
+@use "/src/styles/themes/dark_theme";
+@use "/src/styles/components/index" as components;
+@use "/src/styles/typography/config" as typography;
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core(typography.$my-app-typography);
+// @include mat.core();
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+// @include mat.all-component-themes($angular_practice-theme);
+@include mat.core-theme(light_theme.$my-app-light-theme);
+@include mat.button-theme(light_theme.$my-app-light-theme);
+@include components.theme(
+  light_theme.$my-app-light-theme,
+  typography.$my-app-typography,
+  light_theme.$my-app-light-variants
+);
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
