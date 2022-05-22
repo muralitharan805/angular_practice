@@ -1,69 +1,12 @@
-<!-- src/app/app.component.html -->
-
-<div>
-  <h1>Angular Material Theming System: Complete Guide</h1>
-  <button
-    mat-icon-button
-    (click)="toggleDarkTheme()"
-    class="theme-toggle"
-    aria-label="Toggle Dark Theme"
-  >
-    <mat-icon>{{ isDark ? "dark_mode" : "light_mode" }}</mat-icon>
-  </button>
-  <div class="demo-buttons">
-    <button mat-raised-button color="primary">Raised</button>
-    <button mat-raised-button color="accent">Accent</button>
-    <button mat-raised-button color="warn">Warn</button>
+<div class="header">
+  <div class="header-content">
+    <div class="company-name">test</div>
+    <div class="company-menus">test</div>
   </div>
 </div>
-
-<div class="alert" role="alert">
-  <h4 class="alert-heading"><mat-icon>thumb_up</mat-icon> Well done!</h4>
-  <button mat-icon-button aria-label="Close" class="alert-close">
-    <mat-icon>close</mat-icon>
-  </button>
-  <p class="alert-message">
-    You did a great job! To get your reward,
-    <a href="#" class="alert-link">click here</a>.
-  </p>
-  <hr />
-  <p class="alert-footer">
-    Your reward will be credited to your account within 24 Hour.
-  </p>
+<div class="sidenav" id="test">sidenav</div>
+<div class="content">
+  <div class="content-container">
+    <div class="company-info">demo</div>
+  </div>
 </div>
-
-<!-- src/app/app.component.html -->
-
-<!-- rest remains same ->
-
-<!-- success buttons -->
-
-<button mat-button color="success">Success</button>
-<button mat-stroked-button color="success">Success Stroked</button>
-<button mat-flat-button color="success">Success Flat</button>
-<button mat-raised-button color="success">Success Raised</button>
-<button mat-icon-button color="success">
-  <mat-icon>check_circle</mat-icon>
-</button>
-<button mat-fab color="success">
-  <mat-icon>check_circle</mat-icon>
-</button>
-<button mat-mini-fab color="success">
-  <mat-icon>check_circle</mat-icon>
-</button>
-
-<!-- info buttons -->
-
-<button mat-button color="info">Info</button>
-<button mat-stroked-button color="info">Info Stroked</button>
-<button mat-flat-button color="info">Info Flat</button>
-<button mat-raised-button color="info">Info Raised</button>
-<button mat-icon-button color="info">
-  <mat-icon>info</mat-icon>
-</button>
-<button mat-fab color="info">
-  <mat-icon>info</mat-icon>
-</button>
-<button mat-mini-fab color="info">
-  <mat-icon>info</mat-icon>
-</button>

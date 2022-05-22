@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from './shared/shared.module';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatGridListModule,
     SharedModule,
   ],
   providers: [],
