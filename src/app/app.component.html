@@ -6,7 +6,26 @@
     <h1 class="example-app-name">Responsive App</h1>
   </mat-toolbar>
   <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav #snav mode="side" opened>Sidenav content</mat-sidenav>
+    <mat-sidenav #snav mode="side" opened>
+      <mat-nav-list>
+        <mat-list-item>
+          <mat-icon mat-list-icon>person</mat-icon>
+          <h4>Person</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>assignment</mat-icon>
+          <h4>Assignment</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>domain</mat-icon>
+          <h4>Domain</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder_shared</mat-icon>
+          <h4>Folder shared</h4>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
     <mat-sidenav-content>Main content</mat-sidenav-content>
   </mat-sidenav-container>
 </div>
