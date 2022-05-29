@@ -1,4 +1,9 @@
+import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component } from '@angular/core';
+import {
+  MatTreeFlatDataSource,
+  MatTreeFlattener,
+} from '@angular/material/tree';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +12,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular_practice';
+
+  isMenuClick = true;
+  isCollapse = false;
+
+  onCollapse() {
+    this.isCollapse = !this.isCollapse;
+  }
+  constructor() {}
 }

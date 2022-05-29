@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MaterialModule } from './material/material.module';
+import { Test1Component } from './test1/test1.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, Test1Component],
   imports: [
     BrowserModule,
     AppRoutingModule,

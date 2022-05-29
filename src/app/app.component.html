@@ -1,31 +1,77 @@
-<div class="example-container">
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()">
+<div class="main">
+  <mat-toolbar color="primary" class="header-nav">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      (click)="sidenav.toggle()"
+    >
       <mat-icon>menu</mat-icon>
     </button>
-    <h1 class="example-app-name">Responsive App</h1>
+    <span>My App</span>
+    <span class="header-nav-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>share</mat-icon>
+    </button>
   </mat-toolbar>
-  <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav #snav mode="side" opened>
-      <mat-nav-list>
-        <mat-list-item>
-          <mat-icon mat-list-icon>person</mat-icon>
-          <h4>Person</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <mat-icon mat-list-icon>assignment</mat-icon>
-          <h4>Assignment</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <mat-icon mat-list-icon>domain</mat-icon>
-          <h4>Domain</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <mat-icon mat-list-icon>folder_shared</mat-icon>
-          <h4>Folder shared</h4>
-        </mat-list-item>
-      </mat-nav-list>
+  <mat-sidenav-container class="side-nav-container" style="margin-top: 60px">
+    <mat-sidenav #sidenav mode="side" opened>
+      <div class="side-nav">
+        <mat-nav-list role="list">
+          <mat-list-item>
+            <mat-icon class="sidenav-menu-icon" mat-list-icon>home</mat-icon>
+            <div [ngClass]="isCollapse ? 'sidenav-menu-name' : ''">Home</div>
+          </mat-list-item>
+        </mat-nav-list>
+        <div class="header-nav-spacer"></div>
+        <mat-nav-list>
+          <mat-divider></mat-divider>
+
+          <mat-list-item>
+            <!-- <ng-container
+              *ngIf="isCollapse; then thenTemplate; else elseTemplate"
+            ></ng-container>
+            <ng-template #thenTemplate>
+              <mat-icon class="sidenav-menu-icon" mat-list-icon
+                >keyboard_double_arrow_right</mat-icon
+              >
+            </ng-template>
+            <ng-template #elseTemplate>
+              
+            </ng-template> -->
+            <div class="side-nav-collapse" (click)="onCollapse()">
+              <ng-container
+                *ngIf="isCollapse; then thenTemplate; else elseTemplate"
+              ></ng-container>
+              <ng-template #thenTemplate>
+                <mat-icon class="sidenav-menu-icon" mat-list-icon
+                  >keyboard_double_arrow_right</mat-icon
+                >
+              </ng-template>
+              <ng-template #elseTemplate>
+                <mat-icon class="sidenav-menu-icon" mat-list-icon
+                  >keyboard_double_arrow_left</mat-icon
+                >
+              </ng-template>
+              <div [ngClass]="isCollapse ? 'sidenav-menu-name' : ''">
+                Collapse Sidebar
+              </div>
+            </div>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
     </mat-sidenav>
-    <mat-sidenav-content>Main content</mat-sidenav-content>
+    <mat-sidenav-content> demo </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
