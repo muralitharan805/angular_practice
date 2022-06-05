@@ -12,12 +12,17 @@ import {
 interface FoodNode {
   name: string;
   children?: FoodNode[];
+  url?: string;
 }
 
 const TREE_DATA: FoodNode[] = [
   {
     name: 'Fruit',
-    children: [{ name: 'Apple' }, { name: 'Banana' }, { name: 'Fruit loops' }],
+    children: [
+      { name: 'Apple', url: 'demo' },
+      { name: 'Banana' },
+      { name: 'Fruit loops' },
+    ],
   },
   {
     name: 'Vegetables',
@@ -52,12 +57,12 @@ export class AppComponent {
   private _transformer = (node: FoodNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
-      name: node.name,
+      name: { name: node.name, url: 'demo' },
       level: level,
     };
   };
 
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
+  treeControl = new FlatTreeControl<any>(
     (node) => node.level,
     (node) => node.expandable
   );
