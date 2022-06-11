@@ -1,24 +1,43 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-  <!-- child -->
-  <!-- This is the tree node template for leaf nodes -->
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-    <!-- use a disabled button to provide padding for tree leaf -->
-    <!-- <button mat-icon-button disabled></button> -->
-    {{ node.url | json }}child
-  </mat-tree-node>
+<mat-nav-list>
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- child -->
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node *matTreeNodeDef="let node" style="border: 2px solid red">
+      <!-- use a disabled button to provide padding for tree leaf -->
+      <!-- <button mat-icon-button disabled></button> -->
 
-  <!-- parent -->
-  <!-- This is the tree node template for expandable nodes -->
-  <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
-    <button
-      mat-icon-button
-      matTreeNodeToggle
-      [attr.aria-label]="'Toggle ' + node.name"
-    >
-      <!-- <mat-icon class="mat-icon-rtl-mirror">
-        {{ treeControl.isExpanded(node) ? "expand_more" : "chevron_right" }}
-      </mat-icon> -->
-      {{ node.name.name }}
-    </button>
-  </mat-tree-node>
-</mat-tree>
+      <mat-list-item
+        matLine
+        [routerLink]="node.name.url"
+        routerLinkActive="router-link-active"
+      >
+        <button mat-icon-button disabled></button>
+
+        {{ node.name.name }}
+      </mat-list-item>
+    </mat-tree-node>
+
+    <!-- parent -->
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild">
+      <mat-list-item
+        matTreeNodeToggle
+        [attr.aria-label]="'Toggle ' + node.name"
+      >
+        {{ node.name.name }}
+      </mat-list-item>
+    </mat-tree-node>
+  </mat-tree>
+</mat-nav-list>
+
+<div class="container" style="border: 2px solid red">
+  <router-outlet></router-outlet>
+</div>
+<mat-nav-list>
+  <mat-list-item
+    [routerLink]="['/files']"
+    routerLinkActive="router-link-active"
+  >
+    Files
+  </mat-list-item>
+</mat-nav-list>

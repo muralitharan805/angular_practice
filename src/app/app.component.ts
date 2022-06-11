@@ -17,11 +17,15 @@ interface FoodNode {
 
 const TREE_DATA: FoodNode[] = [
   {
-    name: 'Fruit',
+    name: 'Repository',
     children: [
-      { name: 'Apple', url: 'demo' },
-      { name: 'Banana' },
-      { name: 'Fruit loops' },
+      { name: 'Files', url: 'files' },
+      { name: 'Commits', url: 'commits' },
+      { name: 'Branches', url: 'branches' },
+      { name: 'Tags', url: 'files' },
+      { name: 'Contributors', url: 'files' },
+      { name: 'Graph', url: 'files' },
+      { name: 'Compare', url: 'files' },
     ],
   },
   {
@@ -57,7 +61,7 @@ export class AppComponent {
   private _transformer = (node: FoodNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
-      name: { name: node.name, url: 'demo' },
+      name: { name: node.name, url: node.url },
       level: level,
     };
   };
@@ -78,6 +82,13 @@ export class AppComponent {
 
   constructor() {
     this.dataSource.data = TREE_DATA;
+    // this.treeControl.expand;
+    this.treeControl.toggle(this.treeControl.dataNodes[0]);
+
+    // console.log(
+    //   'treeControl ',
+    //   this.treeControl.toggle(this.treeControl.dataNodes[0])
+    // );
   }
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
